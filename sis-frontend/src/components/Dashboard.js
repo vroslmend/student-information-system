@@ -22,6 +22,9 @@ const Dashboard = () => {
       <Link to="/create-student">
         <div className="dashboard-block">Add New Student</div>
       </Link>
+      <Link to="/export-data">
+        <div className="dashboard-block">Export Data</div>
+      </Link>
     </div>
   );
 };

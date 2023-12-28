@@ -151,6 +151,61 @@ app.get("/api/students/:id/courses", async (req, res) => {
 });
 
 
+// Endpoint to get enrollment information for a specific student
+app.get("/api/students/:id/enrollments", async (req, res) => {
+  await poolConnect;
+
+  const studentId = req.params.id;
+
+  try {
+    const result = await pool
+      .request()
+      .input("studentId", sql.Int, studentId)
+      .query("SELECT * FROM Enrollment WHERE StudentID = @studentId");
+
+    const enrollments = result.recordset;
+
+    if (enrollments.length > 0) {
+      res.json(enrollments);
+    } else {
+      res.status(404).json({ message: "No enrollments found for this student" });
+    }
+  } catch (error) {
+    console.error("Error fetching student enrollments:", error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
+// Endpoint to get transcript information for a specific student
+app.get("/api/students/:id/transcript", async (req, res) => {
+  await poolConnect;
+
+  const studentId = req.params.id;
+
+  try {
+    const result = await pool
+      .request()
+      .input("studentId", sql.Int, studentId)
+      .query("SELECT * FROM Transcript WHERE StudentID = @studentId");
+
+    const transcript = result.recordset;
+
+    if (transcript.length > 0) {
+      res.json(transcript);
+    } else {
+      res.status(404).json({ message: "No transcript found for this student" });
+    }
+  } catch (error) {
+    console.error("Error fetching student transcript:", error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
+
+
+
 // Endpoint to get all CourseCode from the Course table
 app.get("/api/courses", async (req, res) => {
   await poolConnect;

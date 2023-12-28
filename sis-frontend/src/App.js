@@ -9,6 +9,7 @@ import StudentListDisplay from './components/StudentListDisplay';
 import StudentDetails from './components/StudentDetails';
 import EditStudentForm from './components/EditStudentForm';
 import NewStudentForm from './components/NewStudentForm';
+import ExportData from './components/ExportData';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/students/:id" element={<StudentDetails />} />
           <Route path="/edit-student/:studentId" element={<EditStudentForm />} />
           <Route path="/create-student" element={<NewStudentForm />} />
+          <Route path="/export-data" element={<ExportData />} />
         </Routes>
       </BrowserRouter>
     </div>
