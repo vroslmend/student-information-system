@@ -1,0 +1,54 @@
+/* src/styles/StudentDetails.css */
+
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.student-details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .student-details-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+  
+  .student-details-container p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .student-details-container h3 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .enrolled-courses {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+  }
+
+  .enrolled-courses p {
+    display: inline-block;
+    margin: 0 5px 5px 0; /* Add margin between courses for better spacing */
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #3498db; /* Blue color, you can customize */
+    color: #fff; /* Text color, you can customize */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s;
+  }

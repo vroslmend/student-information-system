@@ -1,0 +1,132 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.mainContainer {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px; /* Add some top margin for better spacing */
+}
+
+.titleContainer h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333; /* Dark color for better readability */
+}
+
+.titleContainer p {
+  margin-top: 10px; /* Add some top margin between title and subtitle */
+  font-size: 18px;
+  color: #666; /* Slightly darker than the background color */
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.inputContainer > .errorLabel {
+  color: red;
+  font-size: 12px;
+}
+
+.inputBox {
+  height: 48px;
+  width: 400px;
+  font-size: large;
+  border-radius: 8px;
+  border: 1px solid grey;
+  padding-left: 8px;
+  margin-bottom: 16px; /* Added margin for better spacing */
+}
+
+.inputButton {
+  border: none;
+  background: cornflowerblue;
+  color: white;
+  padding: 12px 24px;
+  margin: 8px;
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-block {
+  width: 200px;
+  height: 100px;
+  background-color: #3498db; /* Blue color, you can customize */
+  color: #fff; /* Text color, you can customize */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.dashboard-block:hover {
+  background-color: #2980b9; /* Darker blue on hover, you can customize */
+}
+
+/* src/styles/StudentList.css */
+.student-list-container {
+  /* Your existing styles for the student list container */
+}
+
+.section-title {
+  /* Your existing styles for the section title */
+}
+
+.student-ul {
+  list-style: none;
+  padding: 0;
+}
+
+.student-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.student-item:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.02); /* Adds a slight scale effect on hover */
+}
+
+/* Additional styling for the student details page if needed */
+.student-details-container {
+  /* Your styles for the student details container */
+}
