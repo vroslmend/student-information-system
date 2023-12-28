@@ -361,6 +361,39 @@ app.put("/api/students/:id/attendance", async (req, res) => {
 });
 
 
+app.post("/api/students/:id/attendance", async (req, res) => {
+  const newAttendance = req.body;
+
+  try {
+    // Get the current maximum AttendanceID
+    const resultMaxId = await pool
+      .request()
+      .query("SELECT MAX(AttendanceID) AS MaxID FROM Attendance");
+
+    // Calculate the new AttendanceID
+    const newAttendanceID = resultMaxId.recordset[0].MaxID + 1;
+
+    // Insert the new record with the calculated AttendanceID
+    const result = await pool
+      .request()
+      .input("attendanceId", sql.Int, newAttendanceID)
+      .input("studentId", sql.Int, req.params.id)
+      .input("courseCode", sql.VarChar, newAttendance.courseCode)
+      .input("attendanceDate", sql.Date, new Date(newAttendance.attendanceDate))
+      .input("status", sql.VarChar, newAttendance.status)
+      .input("semesterId", sql.VarChar, newAttendance.semesterId)
+      .query("INSERT INTO Attendance (AttendanceID, StudentID, CourseCode, AttendanceDate, Status, SemesterID) VALUES (@attendanceId, @studentId, @courseCode, @attendanceDate, @status, @semesterId)");
+
+    res.status(201).json({ message: 'Attendance record added successfully' });
+  } catch (error) {
+    console.error("Error adding attendance record:", error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
+
+//For adding enrollment
 app.post("/api/students/:id/enrollment", async (req, res) => {
   const newEnrollment = req.body;
 
